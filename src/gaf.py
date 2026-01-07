@@ -10,14 +10,6 @@ class GAFEncoder:
 
     def encode(self, x):
         """
-        :param x: 1D array of log returns
-        :return: 2D GAF Image (size x size)
+        x: 이미 [-1, 1]로 scaling된 1D array
         """
-        # 핵심 로직 (Fixed Scaling)
-        # 시장 변동성이 +/- 5% (0.05)를 넘어가면 이미지를 꽉 채우고(-1 or 1),
-        # 그보다 작으면 흐릿하게 표현하여 '강도'를 보존함.
-        limit = 0.05
-        x_scaled = np.clip(x / limit, -1, 1)
-        
-        # 1D array -> 2D GAF Image 변환
-        return self.gaf.fit_transform(x_scaled.reshape(1, -1))[0]
+        return self.gaf.fit_transform(x.reshape(1, -1))[0]
