@@ -1,0 +1,1 @@
+{"window_size": 32, "future_days": 5, "img_size": 32, "batch_size": 64, "epochs": 15, "lr": 0.001, "tickers": ["SPY", "QQQ", "NVDA", "AAPL", "KO", "JNJ", "JPM", "BAC", "XOM", "CVX"]}

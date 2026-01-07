@@ -1,0 +1,9 @@
+# .gitignore
+__pycache__/
+*.pyc
+.ipynb_checkpoints
+.DS_Store
+.env
+venv/
+anaconda3/
+# artifacts 폴더는 올려야 하므로 여기에 적음 안됨 (모델이 있어야 서버가 돌아감)
