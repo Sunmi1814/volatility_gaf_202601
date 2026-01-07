@@ -84,7 +84,15 @@ if st.sidebar.button("Run Analysis"):
     with st.spinner(f"Fetching data for {ticker}..."):
         try:
             # 데이터 로드
-            df = yf.download(ticker, period="6mo", progress=False)
+            df = yf.download(
+                ticker,
+                period="6mo",
+                auto_adjust=True,
+                progress=False
+            )
+
+            df = df.dropna()
+            df = df.iloc[:-1]  # 마지막 하루 제거 (미완성 캔들 제거)
             
             if isinstance(df.columns, pd.MultiIndex):
                 try:
